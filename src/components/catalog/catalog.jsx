@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import GenreList from "../genre-list/genre-list.jsx";
 import MovieList from "../movie-list/movie-list.jsx";
 
-const Catalog = ({genres, movies}) => {
+const Catalog = ({genres, movies, goToMovie}) => {
   return (
     <section className="catalog">
       <h2 className="catalog__title visually-hidden">Catalog</h2>
 
       <GenreList genres={genres}/>
-      <MovieList movies={movies} />
+      <MovieList movies={movies} goToMovie={goToMovie} />
 
       <div className="catalog__more">
         <button className="catalog__button" type="button">Show more</button>
@@ -20,7 +20,9 @@ const Catalog = ({genres, movies}) => {
 
 Catalog.propTypes = {
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
-  movies: PropTypes.arrayOf(PropTypes.string).isRequired
+  movies: PropTypes.arrayOf(PropTypes.string).isRequired,
+  goToMovie: PropTypes.func.isRequired
 };
 
 export default Catalog;
+
